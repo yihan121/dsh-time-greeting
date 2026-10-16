@@ -1,0 +1,18 @@
+# 依赖目录 —— 装了插件之后会出现，不该进仓库
+node_modules/
+
+# 日志和临时文件
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# 编辑器 / 系统生成的东西
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 运行时留下的状态（如果有人在仓库目录里跑过它）
+*.tmp
+.cache/

@@ -1,0 +1,25 @@
+﻿# dsh-time-greeting bundle layer.
+#
+# One row. Mounted when the plugin is added to a profile; a profile-level patch
+# can still disable it by id (`time-greeting`).
+#
+# What it does: subscribes to `agent/pre-step` and splices one short note into
+# the step's message list EVERY step — the current time, how long the silence
+# was, and the rule for when a greeting is welcome. The note is facts plus a
+# requirement; it never issues a verdict, so the greeting decision stays with
+# whoever can read how the user actually sounds.
+#
+#   minGapMinutes   the silence threshold quoted in the note (default 45)
+#   enabled         false makes the plugin completely silent — no note, no tokens
+#   testMode        true skips the silence check and adds a random marker, so a
+#                   reader can prove the injection arrived rather than infer it
+#   statePath       where the last-activity stamp lives; empty means
+#                   <dsh home>/time-greeting.json
+
+- insert:
+    - id: time-greeting
+      name: dsh-time-greeting
+      config:
+        minGapMinutes: 45
+        enabled: true
+        testMode: false

@@ -1,0 +1,15 @@
+# 统一换行符。
+#
+# Windows 用 CRLF，Linux/macOS 用 LF。如果不管，同一个文件在不同系统上
+# 会被认为"整个文件都改了" —— 因为每一行的结尾都不一样了。
+#
+# `text=auto` 让 git 自己判断哪些是文本文件；
+# `eol=lf` 强制仓库里一律存 LF（这是开源项目的通行做法，也避免上面那种假 diff）。
+* text=auto eol=lf
+
+# 这几个是二进制，别让 git 去动它们的换行符
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
